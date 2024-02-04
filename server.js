@@ -62,10 +62,10 @@ const databaseConnection = async () => {
     await mongoose.connect(mongoose_uri, { autoCreate: true });
     console.log("database connected successfully");
     app.listen(port || 5008, () => {
-      console.log(`app is listening on port ${port || 5008}`);
+      // console.log(`app is listening on port ${port || 5008}`);
     });
   } catch (error) {
-    console.log("error in database connection", error);
+    // console.log("error in database connection", error);
     process.exit(1);
   }
 };
@@ -117,7 +117,7 @@ app.post("/admin/signup", async (req, res) => {
     res.status(201).json({ message: "Admin created successfully" });
   } catch (error) {
     // error in making request
-    console.error("Error in admin signup:", error);
+    // console.error("Error in admin signup:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -146,7 +146,7 @@ app.post("/admin/login", async (req, res) => {
       res.status(404).json({ error: "User not found" });
     }
   } catch (error) {
-    console.error("Error in login", error);
+    // console.error("Error in login", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
